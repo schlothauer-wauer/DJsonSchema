@@ -1,4 +1,4 @@
-program jsonsgen;
+program djsonsgen;
 
 {$APPTYPE CONSOLE}
 

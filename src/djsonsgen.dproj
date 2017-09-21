@@ -3,7 +3,7 @@
         <ProjectGuid>{0EC1B03A-9520-4EEB-A909-91B011CD8BAA}</ProjectGuid>
         <ProjectVersion>18.2</ProjectVersion>
         <FrameworkType>None</FrameworkType>
-        <MainSource>jsonsgen.dpr</MainSource>
+        <MainSource>djsonsgen.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -112,7 +112,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">jsonsgen.dpr</Source>
+                    <Source Name="MainSource">djsonsgen.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment Version="3">
@@ -136,15 +136,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\jsCodeGen.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\djsonsgen.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>jsCodeGen.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win32\Debug\jsonsgen.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>jsonsgen.exe</RemoteName>
+                        <RemoteName>djsonsgen.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
