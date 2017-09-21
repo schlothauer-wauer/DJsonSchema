@@ -30,13 +30,11 @@ type
 implementation
 
 uses
-  System.Generics.Collections, DUnitX.Assert, DUnitX.Init,
-  DUnitX.TestFramework, DUnitX.Exceptions;
+  System.Generics.Collections, DUnitX.Assert, DUnitX.Init, DUnitX.TestFramework;
 
 
 resourcestring
-  StringDiffersAtPosition = 'Der erwartete String <%s> unterscheidet sich vom ' +
-  'aktuellen String <%s> an Position %d';
+  StringDiffersAtPosition = 'The expected String <%s> is different from the actual String <%s> at position %d';
 
 function DiffPos(const S1, S2: String): integer;
 var
@@ -84,19 +82,19 @@ begin
     end;
 
     Assert.IsTrue(expected <> actual);
-    Assert.AreEqual(expected.Count, actual.Count, 'Anzahl der Strings ist unterschiedlich');
+    Assert.AreEqual(expected.Count, actual.Count, 'Number of Strings is different');
     for index := 0 to expected.Count - 1 do
     begin
       lineNumber := index + 1;
       if (ignoreLinesDict.ContainsKey(lineNumber)) then
       begin
-        OutputDebugString(PChar('CheckEquals: Ignoriere Zeile ' + IntToStr(lineNumber) + ':' + actual[index]));
+        OutputDebugString(PChar('CheckEquals: Ignoring line ' + IntToStr(lineNumber) + ':' + actual[index]));
       end
       else begin
         if (expected[index] <> actual[index]) then
         begin
           diff := DiffPos(expected[index], actual[index]);
-          Assert.Fail(Format('Unterschied in Zeile %d, Position %d:'#13#10'Erwartet: %s'#13#10'Erhalten: %s',
+          Assert.Fail(Format('Difference in line %d, position %d:'#13#10'Expected: %s'#13#10'Actual: %s',
             [lineNumber, diff, expected[index], actual[index]]));
         end;
       end;
@@ -148,7 +146,7 @@ begin
     except
       on E: ETestFailure do
       begin
-        raise ETestFailure.CreateFmt('Datei %s: ' + E.Message, [ExpectedFile]);
+        raise ETestFailure.CreateFmt('File %s: ' + E.Message, [ExpectedFile]);
       end;
     end;
   finally
