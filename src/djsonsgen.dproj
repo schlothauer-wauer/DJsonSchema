@@ -85,7 +85,7 @@
         <VerInfo_Keys>CompanyName=;FileDescription=Delphi JSON Schema Code Generator;FileVersion=0.1.0.0;InternalName=DJsonSchemaGen;LegalCopyright=;LegalTrademarks=;OriginalFilename=djsonsgen.exe;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.0.0;Comments=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
-        <DCC_DcuOutput>..\bin\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\bin\dcu\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>..\bin\$(Platform)\$(Config)</DCC_ExeOutput>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>(Ohne)</Manifest_File>
