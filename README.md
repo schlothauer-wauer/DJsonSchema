@@ -22,13 +22,13 @@ djsonsgen.exe <json_schema> <template_dir> [options]
 
 ## Compilation/Contribution
 
-These are the steps if you want to compile the project for own purposes or if you like to contribute to this project.
+These are the steps if you want to compile the project for your own purposes or if you like to contribute to this project.
 
 ### Clone
 
 `git clone --recursive https://github.com/schlothauer-wauer/DJsonSchema.git`
 
-The `recursive` parameter is required to clone/update also the `src/dmustache` *submodule* (SynMustache). Alternatively you could run the following commands:
+The `recursive` parameter is required to clone/update also the *submodule* `src/dmustache` (SynMustache). Alternatively you could run the following commands:
 
 ```
 git clone https://github.com/schlothauer-wauer/DJsonSchema.git
