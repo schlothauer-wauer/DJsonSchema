@@ -256,9 +256,13 @@ begin
     templateFilename := TRegEx.Replace(templateFilename, '^{([^{].*[^}])}\.', '$1.');
     FClassMustache := TSynMustache.Parse(RawUTF8(templateString));
     Result[index] := GenerateSchemaClass(FRootSchema, templateFilename);
+    {$IFDEF CONSOLE}
     Writeln(Result[index].Filename + ' written');
+    {$ENDIF}
   end;
+  {$IFDEF CONSOLE}
   Writeln(Format('%d files was written.', [lenFiles]));
+  {$ENDIF}
 end;
 
 function TJsonSchemaCodeGenerator.GenerateSchemaClass(AJsonSchema: TJsonSchema;
