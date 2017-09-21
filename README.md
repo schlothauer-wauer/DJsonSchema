@@ -20,6 +20,8 @@ djsonsgen.exe <json_schema> <template_dir> [options]
 
 **Example:** `djsonsgen.exe draft-04-schema.json .\templates`
 
+- [Writing templates for DJsonSchema](/src/templates/README.md)
+
 ## Compilation/Contribution
 
 These are the steps if you want to compile the project for your own purposes or if you like to contribute to this project.
