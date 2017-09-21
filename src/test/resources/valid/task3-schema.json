@@ -1,0 +1,89 @@
+{
+  "id": "http://x.y.z/rootschema.json#",
+  "title": "Task 3",
+  "description": "Schema with references - create a valid data",
+  "definitions": {
+    "my_data": {
+      "id": "#my_data",
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "foo": {
+      "$ref": "#foo"
+    },
+    "bar": {
+      "$ref": "otherschema.json#bar"
+    },
+    "baz": {
+      "$ref": "t/inner.json#baz"
+    },
+    "bax": {
+      "$ref": "http://somewhere.else/completely#"
+    },
+    "quux": {
+      "$ref": "#/schema3/allOf/0"
+    }
+  },
+  "required": [
+    "foo",
+    "bar",
+    "baz",
+    "bax",
+    "quux"
+  ],
+  "schema1": {
+    "id": "#foo",
+    "allOf": [
+      {
+        "$ref": "#my_data"
+      }
+    ]
+  },
+  "schema2": {
+    "id": "otherschema.json",
+    "definitions": {
+      "my_data": {
+        "id": "#my_data",
+        "type": "string"
+      }
+    },
+    "nested": {
+      "id": "#bar",
+      "allOf": [
+        {
+          "$ref": "#my_data"
+        }
+      ]
+    },
+    "alsonested": {
+      "id": "t/inner.json#baz",
+      "definitions": {
+        "my_data": {
+          "id": "#my_data",
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#my_data"
+        }
+      ]
+    }
+  },
+  "schema3": {
+    "id": "http://somewhere.else/completely#",
+    "definitions": {
+      "my_data": {
+        "id": "#my_data",
+        "type": "null"
+      }
+    },
+    "allOf": [
+      {
+        "$ref": "#my_data"
+      }
+    ]
+  }
+}

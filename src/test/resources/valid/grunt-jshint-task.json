@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "JSON schema for the Grunt JSHint task",
+  "definitions": {
+    "options": {
+      "description": "Set the options for JSHint",
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "jshintrc": {
+              "description": "Either a boolean value or a string containing the file name of the jshintrc file.",
+              "type": [
+                "boolean",
+                "string"
+              ],
+              "enum": [
+                true
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "$ref": "http://json.schemastore.org/jshintrc#"
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "options": {
+      "$ref": "#/definitions/options"
+    }
+  },
+  "additionalProperties": {
+    "anyOf": [
+      {
+        "$ref": "http://json.schemastore.org/grunt-task#/definitions/fileFormat"
+      },
+      {
+        "$ref": "http://json.schemastore.org/grunt-task#/definitions/dynamic"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "options": {
+            "$ref": "#/definitions/options"
+          }
+        }
+      }
+    ]
+  }
+}

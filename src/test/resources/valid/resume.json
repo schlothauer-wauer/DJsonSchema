@@ -1,0 +1,374 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Resume Schema",
+  "type": "object",
+  "properties": {
+    "basics": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "description": "e.g. Web Developer",
+          "type": "string"
+        },
+        "picture": {
+          "description": "URL (as per RFC 3986) to a picture in JPEG or PNG format",
+          "type": "string"
+        },
+        "email": {
+          "description": "e.g. thomas@gmail.com",
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923",
+          "type": "string"
+        },
+        "website": {
+          "description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
+          "type": "string",
+          "format": "uri"
+        },
+        "summary": {
+          "description": "Write a short 2-3 sentence biography about yourself",
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.",
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "countryCode": {
+              "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN",
+              "type": "string"
+            },
+            "region": {
+              "description": "The general region where you live. Can be a US state, or a province, for instance.",
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "profiles": {
+          "description": "Specify any number of social networks that you participate in",
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "network": {
+                "description": "e.g. Facebook or Twitter",
+                "type": "string"
+              },
+              "username": {
+                "description": "e.g. neutralthoughts",
+                "type": "string"
+              },
+              "url": {
+                "description": "e.g. http://twitter.com/neutralthoughts",
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "work": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "company": {
+            "description": "e.g. Facebook",
+            "type": "string"
+          },
+          "position": {
+            "description": "e.g. Software Engineer",
+            "type": "string"
+          },
+          "website": {
+            "description": "e.g. http://facebook.com",
+            "type": "string",
+            "format": "uri"
+          },
+          "startDate": {
+            "description": "resume.json uses the ISO 8601 date standard e.g. 2014-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "description": "e.g. 2012-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "summary": {
+            "description": "Give an overview of your responsibilities at the company",
+            "type": "string"
+          },
+          "highlights": {
+            "description": "Specify multiple accomplishments",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "volunteer": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "organization": {
+            "description": "e.g. Facebook",
+            "type": "string"
+          },
+          "position": {
+            "description": "e.g. Software Engineer",
+            "type": "string"
+          },
+          "website": {
+            "description": "e.g. http://facebook.com",
+            "type": "string",
+            "format": "uri"
+          },
+          "startDate": {
+            "description": "resume.json uses the ISO 8601 date standard e.g. 2014-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "description": "e.g. 2012-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "summary": {
+            "description": "Give an overview of your responsibilities at the company",
+            "type": "string"
+          },
+          "highlights": {
+            "description": "Specify multiple accomplishments",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "education": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "institution": {
+            "description": "e.g. Massachusetts Institute of Technology",
+            "type": "string"
+          },
+          "area": {
+            "description": "e.g. Arts",
+            "type": "string"
+          },
+          "studyType": {
+            "description": "e.g. Bachelor",
+            "type": "string"
+          },
+          "startDate": {
+            "description": "e.g. 2014-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "description": "e.g. 2012-06-29",
+            "type": "string",
+            "format": "date"
+          },
+          "gpa": {
+            "description": "grade point average, e.g. 3.67/4.0",
+            "type": "string"
+          },
+          "courses": {
+            "description": "List notable courses/subjects",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "description": "e.g. H1302 - Introduction to American history",
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "awards": {
+      "description": "Specify any awards you have received throughout your professional career",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "e.g. One of the 100 greatest minds of the century",
+            "type": "string"
+          },
+          "date": {
+            "description": "e.g. 1989-06-12",
+            "type": "string",
+            "format": "date"
+          },
+          "awarder": {
+            "description": "e.g. Time Magazine",
+            "type": "string"
+          },
+          "summary": {
+            "description": "e.g. Received for my work with Quantum Physics",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "publications": {
+      "description": "Specify your publications through your career",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "e.g. The World Wide Web",
+            "type": "string"
+          },
+          "publisher": {
+            "description": "e.g. IEEE, Computer Magazine",
+            "type": "string"
+          },
+          "releaseDate": {
+            "description": "e.g. 1990-08-01",
+            "type": "string"
+          },
+          "website": {
+            "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html",
+            "type": "string"
+          },
+          "summary": {
+            "description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "skills": {
+      "description": "List out your professional skill-set",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "e.g. Web Development",
+            "type": "string"
+          },
+          "level": {
+            "description": "e.g. Master",
+            "type": "string"
+          },
+          "keywords": {
+            "description": "List some keywords pertaining to this skill",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "description": "e.g. HTML",
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "languages": {
+      "description": "List any other languages you speak",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "description": "e.g. English, Spanish",
+            "type": "string"
+          },
+          "fluency": {
+            "description": "e.g. Fluent, Beginner",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "interests": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "e.g. Philosophy",
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "description": "e.g. Friedrich Nietzsche",
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "references": {
+      "description": "List references you have received",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "e.g. Timothy Cook",
+            "type": "string"
+          },
+          "reference": {
+            "description": "e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

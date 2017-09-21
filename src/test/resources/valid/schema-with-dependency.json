@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "schema-the-dependency.json#/properties/name"
+    },
+    "field": {
+      "$ref": "schema-the-dependency.json#"
+    }
+  }
+}
