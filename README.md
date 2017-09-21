@@ -20,15 +20,17 @@ djsonsgen.exe <json_schema> <template_dir> [options]
 
 **Example:** `djsonsgen.exe draft-04-schema.json .\templates`
 
+- [Writing templates for DJsonSchema](/src/templates/README.md)
+
 ## Compilation/Contribution
 
 These are the steps if you want to compile the project for your own purposes or if you like to contribute to this project.
 
-### Clone
+### Get the code
 
 `git clone --recursive https://github.com/schlothauer-wauer/DJsonSchema.git`
 
-The `recursive` parameter is required to clone/update also the *submodule* `src/dmustache` (SynMustache). Alternatively you could run the following commands:
+The `recursive` parameter is **required** to clone/update also the *submodule* `src/dmustache` (SynMustache). Alternatively you could run the following commands:
 
 ```
 git clone https://github.com/schlothauer-wauer/DJsonSchema.git
