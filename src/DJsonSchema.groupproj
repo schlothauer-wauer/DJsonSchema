@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7A5AA55D-368D-4C2E-A8A0-72EC1EA2443C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="djsonsgen.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="test\DJsonSchemaTestProject.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="djsonsgen">
+        <MSBuild Projects="djsonsgen.dproj"/>
+    </Target>
+    <Target Name="djsonsgen:Clean">
+        <MSBuild Projects="djsonsgen.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="djsonsgen:Make">
+        <MSBuild Projects="djsonsgen.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DJsonSchemaTestProject">
+        <MSBuild Projects="test\DJsonSchemaTestProject.dproj"/>
+    </Target>
+    <Target Name="DJsonSchemaTestProject:Clean">
+        <MSBuild Projects="test\DJsonSchemaTestProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DJsonSchemaTestProject:Make">
+        <MSBuild Projects="test\DJsonSchemaTestProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="djsonsgen;DJsonSchemaTestProject"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="djsonsgen:Clean;DJsonSchemaTestProject:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="djsonsgen:Make;DJsonSchemaTestProject:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
