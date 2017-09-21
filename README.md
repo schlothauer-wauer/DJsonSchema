@@ -20,7 +20,7 @@ djsonsgen.exe <json_schema> <template_dir> [options]
 
 **Example:** `djsonsgen.exe draft-04-schema.json .\templates`
 
-## Compilation/Contributation
+## Compilation/Contribution
 
 These are the requirements if you want to compile the project for own purposes or if you like to contribute to this project:
 
