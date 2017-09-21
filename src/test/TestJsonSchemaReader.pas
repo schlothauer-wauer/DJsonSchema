@@ -16,8 +16,6 @@ type
     [Test]
     procedure ReadNestedSchema;
     [Test]
-    procedure ReadSchema_ProcessDataEvent;
-    [Test]
     [TestCase('draft-04-schema', 'draft-04-schema.json')]
     [TestCase('hyper-schema', 'hyper-schema.json')]
     procedure TestJsonSchemaReader(const AJsonFilename: String);
@@ -30,7 +28,7 @@ implementation
 uses
   System.Generics.Collections, JsonSchema.Types, TestAssertUtils,
   System.IOUtils, System.SysUtils, JsonSchema.Writer, System.JSON.Writers,
-  System.JSON.Types, System.Math, System.Types, DUnitX.Exceptions;
+  System.JSON.Types, System.Math, System.Types, DUnitX.Exceptions, Test.Consts;
 
 function ArrayToString(const strings: TArray<String>): String;
 var
@@ -123,7 +121,7 @@ var
   files: TStringDynArray;
   index: Integer;
 begin
-  files := TDirectory.GetFiles('..\..\resources\valid', '*.json');
+  files := TDirectory.GetFiles(TEST_RESOURCES_DIR + '\valid', '*.json');
   for index := 0 to Length(files)-1 do
   begin
     try
@@ -156,31 +154,6 @@ begin
   end;
 end;
 
-procedure TJsonSchemaReaderTest.ReadSchema_ProcessDataEvent;
-const
-  JSON_SCHEMA_FILENAME = '..\..\resources\ProcessDataEvent.json';
-var
-  reader: TJsonSchemaReader;
-begin
-  reader := TJsonSchemaReader.Create;
-  try
-    reader.ReadFromFile(JSON_SCHEMA_FILENAME);
-    Assert.AreEqual('ProcessDataEvent', reader.JsonSchema.Name);
-    Assert.AreEqual('http://schlothauer.de/schemas/lsa-process-data.json', reader.JsonSchema.Id);
-    Assert.AreEqual(DRAFT_04_SCHEMA, reader.JsonSchema.Schema);
-    Assert.AreEqual('', reader.JsonSchema.Title);
-    Assert.AreEqual('JSON Schema for process data of a traffic controller.', reader.JsonSchema.Description);
-    Assert.AreEqual(9, reader.JsonSchema.Properties.Count);
-    Assert.AreEqual('detectorFlanks,domainUUID,programNr,signalChanges,telegrams,timestamp,tx,unitNr,variables',
-      GetJsonSchemaObjectNames(reader.JsonSchema.Properties));
-    Assert.AreEqual('domainUUID,unitNr,timestamp,tx', reader.JsonSchema.Required.CommaText);
-
-    CheckEqualJSON(JSON_SCHEMA_FILENAME, reader.JsonSchema);
-  finally
-    reader.Free;
-  end;
-end;
-
 procedure TJsonSchemaReaderTest.ReadSimpleSchema1;
 var
   reader: TJsonSchemaReader;
@@ -197,7 +170,7 @@ end;
 
 procedure TJsonSchemaReaderTest.TestJsonSchemaReader(const AJsonFilename: String);
 begin
-  ReadAndWriteJsonSchema('..\..\resources\' + AJsonFilename);
+  ReadAndWriteJsonSchema(TEST_RESOURCES_DIR + '\' + AJsonFilename);
 end;
 
 initialization

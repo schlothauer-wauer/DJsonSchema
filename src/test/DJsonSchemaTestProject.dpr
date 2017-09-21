@@ -24,7 +24,8 @@ uses
   SynCommons in '..\dmustache\SynCommons.pas',
   SynLZ in '..\dmustache\SynLZ.pas',
   Test.JsonSchema.CodeGen in 'Test.JsonSchema.CodeGen.pas',
-  dcc32utils in 'dcc32utils.pas';
+  dcc32utils in 'dcc32utils.pas',
+  Test.Consts in 'Test.Consts.pas';
 
 var
   runner : ITestRunner;

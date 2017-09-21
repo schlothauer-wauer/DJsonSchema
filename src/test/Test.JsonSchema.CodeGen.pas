@@ -19,7 +19,7 @@ type
 implementation
 
 uses
-  JsonSchema.CodeGenerator, dcc32utils;
+  JsonSchema.CodeGenerator, dcc32utils, Test.Consts;
 
 { TestJsonSchemaCodeGenerator }
 
@@ -48,18 +48,15 @@ var
   unitInfos: TUnitInfoDynArray;
   templateDir: String;
 begin
-  templateDir := '..\..\..\templates\';
+  templateDir := TEST_TEMPLATES_DIR;
 
-  unitInfos := TJsonSchemaCodeGenerator.Execute('..\..\resources\draft-04-schema.json', templateDir);
+  unitInfos := TJsonSchemaCodeGenerator.Execute(TEST_RESOURCES_DIR + '\draft-04-schema.json', templateDir);
   Compile(unitInfos.Filenames);
 
-  unitInfos := TJsonSchemaCodeGenerator.Execute('..\..\resources\ProcessDataEvent.json', templateDir);
+  unitInfos := TJsonSchemaCodeGenerator.Execute(TEST_RESOURCES_DIR + '\valid\chrome-manifest.json', templateDir);
   Compile(unitInfos.Filenames);
 
-  unitInfos := TJsonSchemaCodeGenerator.Execute('..\..\resources\valid\chrome-manifest.json', templateDir);
-  Compile(unitInfos.Filenames);
-
-  unitInfos := TJsonSchemaCodeGenerator.Execute('..\..\resources\valid\resume.json', templateDir);
+  unitInfos := TJsonSchemaCodeGenerator.Execute(TEST_RESOURCES_DIR + '\valid\resume.json', templateDir);
   Compile(unitInfos.Filenames);
 end;
 
@@ -77,7 +74,7 @@ begin
       '}'+
     '}');
     schemaReader.JsonSchema.Name := 'LineBreakSample';
-    codeGen := TJsonSchemaCodeGenerator.Create(schemaReader.JsonSchema, '..\..\..\templates\');
+    codeGen := TJsonSchemaCodeGenerator.Create(schemaReader.JsonSchema, TEST_TEMPLATES_DIR);
     Compile(codeGen.Generate.Filenames);
   finally
     schemaReader.Free;
