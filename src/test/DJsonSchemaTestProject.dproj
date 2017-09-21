@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{E055DC74-6C5A-432D-9AA3-A926E0C87A37}</ProjectGuid>
         <ProjectVersion>18.2</ProjectVersion>
-        <MainSource>JsonSchemaTestProject.dpr</MainSource>
+        <MainSource>DJsonSchemaTestProject.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -40,7 +40,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>JsonSchemaTestProject</SanitizedProjectName>
+        <SanitizedProjectName>DJsonSchemaTestProject</SanitizedProjectName>
         <UsingDelphiRTL>true</UsingDelphiRTL>
         <DCC_UnitSearchPath>$(DUnitX);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
@@ -120,7 +120,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">JsonSchemaTestProject.dpr</Source>
+                    <Source Name="MainSource">DJsonSchemaTestProject.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k240.bpl">Microsoft Office 2000 Beispiele für gekapselte Komponenten für Automatisierungsserver</Excluded_Packages>
@@ -148,9 +148,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\JsonSchemaTestProject.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\DJsonSchemaTestProject.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>JsonSchemaTestProject.exe</RemoteName>
+                        <RemoteName>DJsonSchemaTestProject.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
