@@ -28,7 +28,7 @@ implementation
 uses
   System.Generics.Collections, JsonSchema.Types, TestAssertUtils,
   System.IOUtils, System.SysUtils, JsonSchema.Writer, System.JSON.Writers,
-  System.JSON.Types, System.Math, System.Types, DUnitX.Exceptions, Test.Consts;
+  System.JSON.Types, System.Math, System.Types, Test.Consts;
 
 function ArrayToString(const strings: TArray<String>): String;
 var
