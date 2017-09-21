@@ -25,4 +25,4 @@ djsonsgen.exe <json_schema> <template_dir> [options]
 These are the requirements if you want to compile the project for own purposes or if you like to contribute to this project:
 
 - Project is written with *Delphi 10.1* (no idea what the minimum required version is) 
-- [DMustache](https://github.com/synopse/dmustache) is used as *Mustache* template engine
+- [SynMustache](https://github.com/synopse/dmustache) is used as *Mustache* template engine
