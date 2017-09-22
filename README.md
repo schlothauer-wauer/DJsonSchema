@@ -4,8 +4,8 @@
 ## Features
 
 - command line tool for generation of boilerplate code to read JSON documents
+- generated code can be adjusted via [Mustache](https://mustache.github.io/) templates
 - JSON Schema draft v4 is only partially supported
-- Support for [Mustache](https://mustache.github.io/) templates
 
 ## Usage
 
