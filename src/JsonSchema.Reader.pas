@@ -276,7 +276,9 @@ begin
   begin
     case Areader.TokenType of
       TJsonToken.StartArray:
+      begin
         Inc(arrayLevel);
+      end;
       TJsonToken.String:
       begin
         AJsonVariants.Add(TJsonVariant.Create(AReader.Value.AsString));
